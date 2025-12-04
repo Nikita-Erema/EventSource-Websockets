@@ -80,14 +80,12 @@ body {
     padding: 10px;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     word-wrap: break-word;
 }
 
 .message {
-    width: 70%;
-    margin-left: auto;
-    margin-right: 30px;
+    width: 50%;
+    align-self: flex-start;
 }
 
 .person {
@@ -95,7 +93,8 @@ body {
 }
 
 .you {
+    margin-left: auto;
     color: orange;
     font-weight: bold;
-    justify-self: flex-end;
+    align-self: flex-end;
 }

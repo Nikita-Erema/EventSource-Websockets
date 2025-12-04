@@ -3,6 +3,10 @@ const messages = document.querySelector('.messages');
 const inputChat = document.querySelector('.chat_input');
 const persons = document.querySelector('.persons');
 
+export function updatePerson() {
+    persons.innerHTML = '';
+}
+
 export function loadPerson(name, itYou) {
     const person = document.createElement('div');
     person.classList.add('person');
@@ -14,22 +18,24 @@ export function loadPerson(name, itYou) {
     else { person.textContent = name };
 
     persons.append(person);
-}; //Думал надо будет добавлять всех кто есть,
-   //но в серверной части нету GET (получение всех пользователей)
-   // поэтому только You и будет
-   // Впринципе если нужно могу попробовать сам добавить эту часть
-   // в проект
+};
 
-function createMessage(messageText) {
+export function createMessage(messageText, messageName) {
     const message = document.createElement('div');
-    message.classList.add('you');
     message.classList.add('message');
-
+    
     const text = document.createElement('div');
     const name = document.createElement('span');
+    
+    if (messageName) {
+        name.textContent = messageName
+        
+    } else {
+        message.classList.add('you');
+        name.textContent = 'You'
+    }
 
     text.textContent = messageText;
-    name.textContent = 'You'
 
     message.append(name);
     message.append(text);
